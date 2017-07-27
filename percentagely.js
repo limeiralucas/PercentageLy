@@ -1,6 +1,6 @@
 function PercentageLy(id, options) {
     this.percentage = 0;
-    this.color = "#79be9b";
+    this.defaultColor = "#79be9b";
     this.hidePercentageSymbol = false;
 
     this.init = function () {
@@ -12,14 +12,14 @@ function PercentageLy(id, options) {
                         '</svg>';
 
         if(options){
-            if(options.color !== undefined) this.color = options.color;
+            if(options.color !== undefined) this.defaultColor = options.color;
             if(options.percentage !== undefined) this.percentage = options.percentage;
             if(options.hidePercentageSymbol !== undefined) this.hidePercentageSymbol = options.hidePercentageSymbol;
         }
         try {
             this.element = document.getElementById(id);
             this.element.classList.add("percentagely");
-            this.element.innerHTML = template.replace(/%color%/g, this.color);
+            this.element.innerHTML = template.replace(/%color%/g, this.defaultColor);
             this.circleElement = this.element.getElementsByTagName("circle")[0];
             this.textElement = this.element.getElementsByTagName("text")[0];
             this.setValue(this.percentage);
@@ -40,8 +40,8 @@ function PercentageLy(id, options) {
     }
     this.setColor = function(color) {
         if(color === undefined) {
-            this.circleElement.style.stroke = "#79be9b";
-            this.textElement.style.fill = "#79be9b";
+            this.circleElement.style.stroke = this.defaultColor;
+            this.textElement.style.fill = this.defaultColor;
         } else {
             this.circleElement.style.stroke = color;
             this.textElement.style.fill = color;
