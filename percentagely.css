@@ -1,0 +1,12 @@
+.percentagely .loading-circle {
+    fill: transparent;
+    stroke-width: 10px;
+    stroke-dasharray: 377;
+    stroke-dashoffset: 377;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    transition: 1s;
+}
+.percentagely .percentage-text {
+    transition: 1s;
+}
